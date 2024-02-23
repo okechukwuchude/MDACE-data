@@ -1,0 +1,32 @@
+{
+  "hadm_id": 152411,
+  "notes": [
+    {
+      "note_id": 674183,
+      "category": "Physician",
+      "description": "Physician Resident Admission Note",
+      "annotations": [
+        {
+          "begin": 2506,
+          "end": 2520,
+          "code": "272.4",
+          "code_system": "ICD-9-CM",
+          "type": "ECAN-supervised-attention"
+        },
+        {
+          "begin": 2694,
+          "end": 2697,
+          "code": "715.90",
+          "code_system": "ICD-9-CM",
+          "type": "ECAN-supervised-attention"
+        }
+      ]
+    },
+    {
+      "note_id": 32090,
+      "category": "Discharge summary",
+      "description": "Report",
+      "annotations": []
+    }
+  ]
+}
