@@ -6,7 +6,6 @@ import sys
 from pathlib import Path
 from typing import Dict
 
-
 # Setting up logging
 logger = logging.getLogger(Path(__file__).name)
 
