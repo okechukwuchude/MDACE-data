@@ -13,12 +13,22 @@ logger = logging.getLogger(Path(__file__).name)
 def inject_note_text(notes_map: Dict[int, str], admission: Dict) -> Dict:
     """Inject text in-place into admission"""
     for note in admission["notes"]:
-        text = notes_map[note["note_id"]]
-        note["text"] = text
-        for annotation in note.get("annotations"):
-            annotation["covered_text"] = text[annotation["begin"] : annotation["end"]]
+        note_id = note.get("note_id")  # Get note_id from note
+        if note_id is not None:
+            text = notes_map.get(note_id)  # Get text from notes_map
+            if text is not None:
+                note["text"] = text
+                for annotation in note.get("annotations", []):
+                    begin = annotation.get("begin", 0)
+                    end = annotation.get("end", 0)
+                    annotation["covered_text"] = text[begin:end]
+            else:
+                logger.warning(f"No text found for note_id: {note_id}")
+        else:
+            logger.warning("No note_id found in note")
 
     return admission
+
 
 
 def _make_out_path(json_file: Path, input_dir: Path, out_dir: Path) -> Path:
