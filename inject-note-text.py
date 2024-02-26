@@ -30,7 +30,6 @@ def inject_note_text(notes_map: Dict[int, str], admission: Dict) -> Dict:
     return admission
 
 
-
 def _make_out_path(json_file: Path, input_dir: Path, out_dir: Path) -> Path:
     """Generate output path for injected JSON file"""
     prefix_len = len(input_dir.parts)
